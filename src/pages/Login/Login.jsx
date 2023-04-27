@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import TextField from "@mui/material/TextField";
 // import { TimePickerToolbar } from '@mui/x-date-pickers-pro';
 import ClearIcon from "@mui/icons-material/Clear";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import GoogleIcon from "@mui/icons-material/Google";
 import AppleIcon from "@mui/icons-material/Apple";
-
+import style from "./Login.module.css"
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
@@ -13,56 +13,39 @@ import DialogContent from "@mui/material/DialogContent";
 // import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from "@mui/material/DialogTitle";
 
-import InputLabel from "@mui/material/InputLabel";
-
 
 const Login = () => {
   const [open, setOpen] = React.useState(false);
-  //   const [email, setEmail] = useState("");
-  //   const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [userList, setUserList] = useState([])
+  const [error, setError] = useState(false)
+  const [errortxt, setErrorTxt] = useState("")
 
-  //   const [error,setError]=useState(false)
-  //   const [errortxt,setErrorTxt]=useState("")
+  useEffect(() => {
+    const data = JSON.parse(localStorage.getItem("userData"))
+    setUserList(data)
+  }, [])
 
-  //   const[users,setUsers]=useState([])
 
-  //   const pattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-  //   function isEmail(str) {
-  //     return str.match(pattern);
-  //   }
-  // const handleSubmit=(e)=>{
-  //   e.preventDefault()
-  //   if(name ==="" || email==="" || password===""){
-  //     setError(true)
-  //     setErrorTxt("*Inputfield can't be blank")
-  //   }else if(name.length<3){
-  //      setError(true)
-  //      setErrorTxt("*Name should be atlest 3 characters")
-  //   }else if(isEmail(email) === null){
-  //          setError(true)
-  //          setErrorTxt("*Invalid email")
-  //   }else if(password.length <6){
-  //     setError(true)
-  //     setErrorTxt("*Password should be atleast 6 characters")
-  //   }else{
-  //     setError(false)
-  //     alert(`welcome ${name}  SignUp Successfull`)
-  //     setName("")
-  //     setEmail("")
-  //     setPassword("")
-
-  //     const userInfo={
-  //       name : name,
-  //       email : email,
-  //       password : password
-  //     }
-  //     // setUsers(...userInfo)
-  // //  console.log(users.push(userInfo))
-  //  console.log(users)
-
-  //   }
-  // }
-
+  const handleSubmit=(e)=>{
+    e.preventDefault()
+    const userFind=userList.find((user)=>user.email===email&&user.password===password)
+    if (userList===null){
+      setError(true)
+      setErrorTxt("Invalid credentials")
+      return;
+    }
+    else if(!userFind){
+      setError(true)
+      setErrorTxt("User not found Register first")
+    }
+    else{
+      setError(false)
+      setErrorTxt("")
+      alert(`Hello Login successful `)
+    }
+    
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -76,12 +59,16 @@ const Login = () => {
       <Dialog
         open={open}
         onClose={handleClose}
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          flexDirection: "column",
+        PaperProps={{
+          sx: {
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            height: "70%",
+            width: "60%"
+          }
         }}
+        className={style.loginDialog}
       >
         <DialogActions>
           <ClearIcon
@@ -95,7 +82,7 @@ const Login = () => {
         </DialogTitle>
         <DialogContent
           sx={{
-            height:"auto",
+            height: "auto",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
@@ -109,7 +96,7 @@ const Login = () => {
               marginTop: "0.5rem",
               padding: "0.5rem",
               borderRadius: "20px",
-              textTransform:"none"
+              textTransform: "none"
             }}
             variant="outlined"
           >
@@ -124,39 +111,43 @@ const Login = () => {
               marginTop: "0.5rem",
               padding: "0.5rem",
               borderRadius: "20px",
-              textTransform:"none"
+              textTransform: "none"
             }}
             variant="outlined"
           >
             <AppleIcon />{" "}
             <span style={{ margin: "5px" }}>Sign in with Apple</span>
           </Button>
-              
+          <div>
+            <hr /> or <hr />
+          </div>
+          <hr />
           <TextField
-            sx={{ marginTop: "1rem", padding: "0.5rem" , height: "1.5rem", 
-            width: "15rem", borderRadius: "20px"
+            sx={{
+              marginTop: "1rem", padding: "0.5rem", height: "1.5rem",
+              width: "15rem", borderRadius: "20px"
             }}
             id="outlined-basic"
             label="Email"
             variant="outlined"
-            // onChange={(e) => setEmail(e.target.value)}
-            // value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          value={email}
           />
 
           <TextField
-             sx={{ marginTop: "2rem", padding: "0.5rem" , height: "1.5rem",
-             width: "15rem", borderRadius: "20px"
-             }}
+            sx={{
+              marginTop: "2rem", padding: "0.5rem", height: "1.5rem",
+              width: "15rem", borderRadius: "20px"
+            }}
             id="outlined-basic"
             label="Password"
             variant="outlined"
-            // onChange={(e) => setPassword(e.target.value)}
-            // value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          value={password}
           />
 
 
-          {/* { error ? <small style={{color:"red"}}>{errortxt}</small> : null  } */}
-          {/* {error && <p>{error}</p>} */}
+          { error ? <small style={{color:"red"}}>{errortxt}</small> : null  }
           <Button
             sx={{
               height: "3rem",
@@ -165,10 +156,10 @@ const Login = () => {
               padding: "0.5rem",
               borderRadius: "20px",
               backgroundColor: "black",
-              textTransform:"none"
+              textTransform: "none"
             }}
             variant="outlined"
-            // onClick={handleSubmit}
+          onClick={handleSubmit}
           >
             Login
           </Button>
@@ -180,21 +171,21 @@ const Login = () => {
               marginTop: ".5rem",
               padding: "0.5rem",
               borderRadius: "20px",
-              textTransform:"none"
+              textTransform: "none"
             }}
             variant="outlined"
-            // onClick={handleSubmit}
+          // onClick={handleSubmit}
           >
             Forgot password?
           </Button>
         </DialogContent>
       </Dialog>
 
-      <Button variant="outlined" onClick={handleClickOpen}>
-        SignUp
+      <Button variant="contained" sx={{ textTransform: "none" }} onClick={handleClickOpen}>
+        LogIn
       </Button>
     </div>
   );
 };
-
+}
 export default Login;

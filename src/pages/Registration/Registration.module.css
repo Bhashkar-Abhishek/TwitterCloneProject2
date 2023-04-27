@@ -1,0 +1,11 @@
+.dobContainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 2rem;
+}
+/* .dayBox{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+} */
