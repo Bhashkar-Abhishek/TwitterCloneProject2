@@ -1,11 +1,15 @@
+.formContainer{
+    height: calc(65vh-1em);
+    width: 100%;
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+    margin-left: "1.5em";
+}
 .dobContainer{
+    width: 88%;
     display: flex;
     flex-direction: row;
-    justify-content: center;
     gap: 2rem;
+    margin-top: 1rem;
 }
-/* .dayBox{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-} */

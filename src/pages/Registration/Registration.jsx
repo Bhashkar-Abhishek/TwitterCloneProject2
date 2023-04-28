@@ -9,7 +9,8 @@ import DialogContent from "@mui/material/DialogContent";
 // import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from "@mui/material/DialogTitle";
 import { useNavigate } from "react-router-dom";
-
+import FormControl from '@mui/material/FormControl';
+import Box from '@mui/material/Box';
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
@@ -77,7 +78,7 @@ const Registration = () => {
     }
   }
 
-  let dates =new Array(31)
+  let dates = new Array(31)
     .fill()
     .map((_, i) => i + 1);
 
@@ -99,120 +100,201 @@ const Registration = () => {
       <Dialog
         open={open}
         onClose={handleClose}
-        sx={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          flexDirection: "column",
+        PaperProps={{
+          sx: {
+            height: "65vh",
+            width: "60vw",
+            borderRadius: "16px"
+          }
         }}
+
       >
         <DialogActions>
           <ClearIcon
             onClick={handleClose}
-            sx={{ marginRight: "20rem", cursor: "pointer" }}
+            sx={{ position: "absolute", left: 0, top: 0, margin: "16px", cursor: "pointer" }}
           />
         </DialogActions>
-        <DialogTitle sx={{ textAlign: "center" }}>
-          Create your account
-        </DialogTitle>
-        <DialogContent
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            flexDirection: "column",
-          }}
-        >
-          <TextField
-            sx={{ marginTop: "1rem", padding: "0.5rem" }}
-            id="outlined-basic"
-            label="Name"
-            variant="outlined"
-            onChange={(e) => setName(e.target.value)}
-            value={name}
-          />
+        <div className={style.formContainer}>
+          <DialogTitle sx={{ position: "absolute", left: 0, top: 0, marginLeft: "1.5em" }}>
+            <h1>Create your account</h1>
+          </DialogTitle>
+          <DialogContent
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              flexDirection: "column",
+            }}
+          >
+            <TextField
+              sx={{ marginTop: "6rem", padding: "0.5rem", width: "88%" }}
+              id="outlined-basic"
+              label="Name"
+              variant="outlined"
+              onChange={(e) => setName(e.target.value)}
+              value={name}
+            />
 
-          <TextField
-            sx={{ marginTop: "1rem", padding: "0.5rem" }}
-            id="outlined-basic"
-            label="Email"
-            variant="outlined"
-            onChange={(e) => setEmail(e.target.value)}
-            value={email}
-          />
+            <TextField
+              sx={{ marginTop: "1rem", padding: "0.5rem", width: "88%" }}
+              id="outlined-basic"
+              label="Email"
+              variant="outlined"
+              onChange={(e) => setEmail(e.target.value)}
+              value={email}
+            />
 
-          {/* <TextField
+            {/* <TextField
              sx={{ marginTop: "1rem" ,padding:"0.5rem"}}
             id="outlined-basic"
             label="Phone"
             variant="outlined"
           /> */}
 
-          <TextField
-            sx={{ marginTop: "1rem", padding: "0.5rem" }}
-            id="outlined-basic"
-            label="Password"
-            type="password"
-            variant="outlined"
-            onChange={(e) => setPassword(e.target.value)}
-            value={password}
-          />
+            <TextField
+              sx={{ marginTop: "1rem", padding: "0.5rem", width: "88%" }}
+              id="outlined-basic"
+              label="Password"
+              type="password"
+              variant="outlined"
+              onChange={(e) => setPassword(e.target.value)}
+              value={password}
 
-          <div className={style.dobContainer}>
-            <div className={style.dayBox}>
-              <InputLabel>DAY</InputLabel>
-              <Select
-                // value={Day}
-                label="Day"
-              // onChange={handleChange}
+            />
 
-              >
-                {dates.map((date, index) => {
-                  return <MenuItem
-                    key={Math.random() * 10000}
-                    value={date}>{date}</MenuItem>;
-                })}
-              </Select>
+            <div className={style.dobContainer}>
+            <div >
+                <Box sx={{ minWidth: 200 }}>
+                  <FormControl fullWidth>
+                    <InputLabel id="demo-simple-select-label">Month</InputLabel>
+                    <Select
+                      labelId="demo-simple-select-label"
+                      id="demo-simple-select"
+                      // value={Month}
+                      label="Month"
+                      // onChange={handleChange}
+                      MenuProps={{
+                        anchorOrigin: {
+                          vertical: "top",
+                          horizontal: "center"
+                        },
+                        transformOrigin: {
+                          vertical: "bottom",
+                          horizontal: "center"
+                        },
+                        PaperProps: {
+                          sx: {
+                            maxHeight: "38vh",
+                          }
+                        }
+                      }}
+                    >
+                      <MenuItem value="" disabled>
+                        <em>Select month</em>
+                      </MenuItem>
+                      {months.map((month, index) => {
+                        return <MenuItem
+                          key={Math.random() * 10000} value={index}>{month}</MenuItem>;
+                          // sx:{{ py: 0, fontSize: '0.9rem' }}
+                      })}
+
+                    </Select>
+                  </FormControl>
+                </Box>
+              </div>
+
+              <div >
+                <Box sx={{ minWidth: 100 }}>
+                  <FormControl fullWidth>
+                    <InputLabel id="demo-simple-select-label">Day</InputLabel>
+                    <Select
+                      labelId="demo-simple-select-label"
+                      id="demo-simple-select"
+                      // value={Day}
+                      label="Day"
+                      // onChange={handleChange}
+                      MenuProps={{
+                        anchorOrigin: {
+                          vertical: "top",
+                          horizontal: "center"
+                        },
+                        transformOrigin: {
+                          vertical: "bottom",
+                          horizontal: "center"
+                        },
+                        PaperProps: {
+                          sx: {
+                            maxHeight: "38vh",
+                          }
+                        }
+                      }}
+                    >
+                      <MenuItem value="" disabled>
+                        <em>Select Day</em>
+                      </MenuItem>
+                      {dates.map((date, index) => {
+                        return <MenuItem
+                          key={Math.random() * 10000}
+                          value={date}>{date}</MenuItem>;
+                      })}
+                    </Select>
+                  </FormControl>
+                </Box>
+              </div>
+
+              
+              <div >
+                <Box sx={{ minWidth: 120 }}>
+                  <FormControl fullWidth>
+                    <InputLabel id="demo-simple-select-label">Year</InputLabel>
+                    <Select
+                      labelId="demo-simple-select-label"
+                      id="demo-simple-select"
+                      // value={Year}
+                      label="Year"
+                      // onChange={handleChange}
+                      MenuProps={{
+                        anchorOrigin: {
+                          vertical: "top",
+                          horizontal: "center"
+                        },
+                        transformOrigin: {
+                          vertical: "bottom",
+                          horizontal: "center"
+                        },
+                        PaperProps: {
+                          sx: {
+                            maxHeight: "38vh",
+                          }
+                        }
+                      }}
+                    >
+                      <MenuItem value="" disabled>
+                        <em>Select Year</em>
+                      </MenuItem>
+                      {years.map((year, index) => {
+                        return <MenuItem key={Math.random() * 10000} value={year}>{year}</MenuItem>;
+                      })}
+
+                    </Select>
+                  </FormControl>
+                </Box>
+              </div>
             </div>
-            <div>
-              <InputLabel>MONTH</InputLabel>
-              <Select
-                sx={{ display: "flex" }}
-                // value={Day}
-                label="Month"
-              // onChange={handleChange}
-              >
-                {months.map((month, index) => {
-                  return <MenuItem
-                    key={Math.random() * 10000} value={index}>{month}</MenuItem>;
-                })}
-              </Select>
-            </div>
 
-            <div>
-              <InputLabel>YEAR</InputLabel>
-              <Select
-                // value={Day}
-                label="year"
-              // onChange={handleChange}
-              >
-                {years.map((year, index) => {
-                  return <MenuItem key={Math.random() * 10000} value={year}>{year}</MenuItem>;
-                })}
-              </Select>
-            </div>
-          </div>
+            {error ? <small style={{ color: "red" }}>{errortxt}</small> : null}
+            {/* {error && <p>{error}</p>} */}
+            <Button
+              sx={{ marginTop: "1rem", padding: "0.5rem" }}
+              variant="contained"
+              onClick={handleSubmit}
+            >
+              SignUp
+            </Button>
+          </DialogContent>
 
-          {error ? <small style={{ color: "red" }}>{errortxt}</small> : null}
-          {/* {error && <p>{error}</p>} */}
-          <Button
-            sx={{ marginTop: "1rem", padding: "0.5rem" }}
-            variant="contained"
-            onClick={handleSubmit}
-          >
-            SignUp
-          </Button>
-        </DialogContent>
+        </div>
       </Dialog>
 
       <Button variant="contained" onClick={handleClickOpen}>

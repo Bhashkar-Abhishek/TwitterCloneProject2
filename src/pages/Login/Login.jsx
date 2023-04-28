@@ -31,7 +31,7 @@ const Login = () => {
   const handleSubmit=(e)=>{
     e.preventDefault()
     const userFind=userList.find((user)=>user.email===email&&user.password===password)
-    if (userList===null){
+    if (userList === undefined ||userList===null){
       setError(true)
       setErrorTxt("Invalid credentials")
       return;
@@ -43,8 +43,9 @@ const Login = () => {
     else{
       setError(false)
       setErrorTxt("")
-      alert(`Hello Login successful `)
+      alert(`Hello ${userList.name} Login successful `)
     }
+  }
     
   const handleClickOpen = () => {
     setOpen(true);
@@ -187,5 +188,5 @@ const Login = () => {
     </div>
   );
 };
-}
+
 export default Login;
