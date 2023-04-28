@@ -1,0 +1,25 @@
+.tweet {
+  flex: 0.4;
+  border-right: 1px solid var(--twitter-background);
+  min-width: fit-content;
+  overflow-y: scroll;
+}
+
+.tweet::-webkit-scrollbar {
+  display: none;
+}
+
+.tweet_header {
+  position: sticky;
+  top: 0;
+  background-color: white;
+  z-index: 100;
+  border: 0.1px solid rgb(236, 223, 223);
+  padding: 30px 10px;
+  font-size: 1rem;
+}
+
+.tweet_header > h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}

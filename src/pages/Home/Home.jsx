@@ -1,10 +1,14 @@
 import React from 'react'
+import Sidebar from './sidebar/Sidebar'
+import Sidebar2 from './RightSide/Sidebar2'
+import Tweet from "./Tweet/Tweet"
 const Home = () => {
   return (
-    <div>
+    <div className='App'>
+   <Sidebar/>
+   <Tweet/>
+   <Sidebar2/>
    
-  <h1>I AM HOME PAGE</h1>
-
     </div>
   )
 }
