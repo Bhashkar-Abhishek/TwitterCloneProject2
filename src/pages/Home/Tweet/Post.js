@@ -6,7 +6,8 @@ import VerifiedIcon from "@mui/icons-material/Verified";
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 import RepeatIcon from "@mui/icons-material/Repeat";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import PublishIcon from "@mui/icons-material/Publish";
+import PollIcon from "@mui/icons-material/Poll";
+import IosShareIcon from "@mui/icons-material/IosShare";
 const Post = () => {
   return (
     <div className={styles.post}>
@@ -18,7 +19,7 @@ const Post = () => {
           <div className={styles.header_text}>
             <h3>
               verified
-              <span>
+              <span className={styles.header_spec}>
                 <VerifiedIcon className={styles.post_verified} />
                 scarlet@gmail.com
               </span>
@@ -33,10 +34,11 @@ const Post = () => {
         </div>
         <img src={Images} alt="img" />
         <div className={styles.bottom}>
-          <ChatBubbleOutlineIcon />
-          <RepeatIcon />
-          <FavoriteIcon />
-          <PublishIcon />
+          <ChatBubbleOutlineIcon fontSize="small" />
+          <RepeatIcon fontSize="small" />
+          <FavoriteIcon fontSize="small" />
+          <PollIcon fontSize="small" />
+          <IosShareIcon fontSize="small" />
         </div>
       </div>
     </div>

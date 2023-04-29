@@ -9,7 +9,12 @@ body{
   --twitter-background : #6becf0;
 }
 
-.App{
+.home_design{
   display: flex;
   height: 100vh;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 1rem;
 }
+

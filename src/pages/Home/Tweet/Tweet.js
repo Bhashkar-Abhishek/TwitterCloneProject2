@@ -8,8 +8,8 @@ const Tweet = () => {
         <div className={styles.tweet_header}>
           <h2>Home</h2>
         </div>
-        <Tweetbox/>
-        <Post/>
+        <Tweetbox />
+        <Post />
       </div>
   );
 };

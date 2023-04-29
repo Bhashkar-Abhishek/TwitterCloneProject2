@@ -10,7 +10,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/*" element={"Error 404 Page not found"} />
       </Routes>
-      <Footer/>
+      {/* <Footer/> */}
 
     </div>
   );
