@@ -13,7 +13,6 @@ import DialogContent from "@mui/material/DialogContent";
 // import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from "@mui/material/DialogTitle";
 
-
 const Login = () => {
   const [open, setOpen] = React.useState(false);
   const [email, setEmail] = useState("");
@@ -28,25 +27,25 @@ const Login = () => {
   }, [])
 
 
-  const handleSubmit=(e)=>{
+  const handleSubmit = (e) => {
     e.preventDefault()
-    const userFind=userList.find((user)=>user.email===email&&user.password===password)
-    if (userList === undefined ||userList===null){
+    const userFind = userList.find((user) => user.email === email && user.password === password)
+    if (userList === undefined || userList === null) {
       setError(true)
       setErrorTxt("Invalid credentials")
       return;
     }
-    else if(!userFind){
+    else if (!userFind) {
       setError(true)
       setErrorTxt("User not found Register first")
     }
-    else{
+    else {
       setError(false)
       setErrorTxt("")
       alert(`Hello ${userList.name} Login successful `)
     }
   }
-    
+
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -62,11 +61,9 @@ const Login = () => {
         onClose={handleClose}
         PaperProps={{
           sx: {
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            height: "70%",
-            width: "60%"
+            height: "70vh",
+            width: "60vw",
+            borderRadius: "16px"
           }
         }}
         className={style.loginDialog}
@@ -74,115 +71,127 @@ const Login = () => {
         <DialogActions>
           <ClearIcon
             onClick={handleClose}
-            sx={{ marginRight: "20rem", cursor: "pointer" }}
+            sx={{ position: "absolute", left: 0, top: 0, margin: "0.5em", cursor: "pointer" }}
           />
-          <TwitterIcon sx={{ color: "blue" }} />
         </DialogActions>
-        <DialogTitle sx={{ textAlign: "center" }}>
-          Sign in to Twitter
-        </DialogTitle>
-        <DialogContent
-          sx={{
-            height: "auto",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            flexDirection: "column",
-          }}
-        >
-          <Button
-            sx={{
-              height: "3rem",
-              width: "15rem",
-              marginTop: "0.5rem",
-              padding: "0.5rem",
-              borderRadius: "20px",
-              textTransform: "none"
-            }}
-            variant="outlined"
-          >
-            <GoogleIcon />{" "}
-            <span style={{ margin: "5px" }}>Sign in with Google</span>
-          </Button>
-
-          <Button
-            sx={{
-              height: "3rem",
-              width: "15rem",
-              marginTop: "0.5rem",
-              padding: "0.5rem",
-              borderRadius: "20px",
-              textTransform: "none"
-            }}
-            variant="outlined"
-          >
-            <AppleIcon />{" "}
-            <span style={{ margin: "5px" }}>Sign in with Apple</span>
-          </Button>
-          <div>
-            <hr /> or <hr />
+        <div className={style.formContaine}>
+          <div className={style.icon}>
+            <TwitterIcon sx={{ color: "blue",position: "absolute", left: "auto",right:"auto", top: 0 }} />
           </div>
-          <hr />
-          <TextField
+          <DialogTitle sx={{ textAlign: "center",fontSize:'1rem' }}>
+            <h1>Sign in to Twitter</h1>
+          </DialogTitle>
+          <DialogContent
             sx={{
-              marginTop: "1rem", padding: "0.5rem", height: "1.5rem",
-              width: "15rem", borderRadius: "20px"
+              height: "auto",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              flexDirection: "column",
             }}
-            id="outlined-basic"
-            label="Email"
-            variant="outlined"
-          onChange={(e) => setEmail(e.target.value)}
-          value={email}
-          />
-
-          <TextField
-            sx={{
-              marginTop: "2rem", padding: "0.5rem", height: "1.5rem",
-              width: "15rem", borderRadius: "20px"
-            }}
-            id="outlined-basic"
-            label="Password"
-            variant="outlined"
-          onChange={(e) => setPassword(e.target.value)}
-          value={password}
-          />
-
-
-          { error ? <small style={{color:"red"}}>{errortxt}</small> : null  }
-          <Button
-            sx={{
-              height: "3rem",
-              width: "15rem",
-              marginTop: ".5rem",
-              padding: "0.5rem",
-              borderRadius: "20px",
-              backgroundColor: "black",
-              textTransform: "none"
-            }}
-            variant="outlined"
-          onClick={handleSubmit}
           >
-            Login
-          </Button>
+            <Button
+              sx={{
+                height: "3rem",
+                width: "20rem",
+                marginTop: "1rem",
+                padding: "0.5rem",
+                borderRadius: "20px",
+                textTransform: "none",
+                textAlign:"center",
+                color:"#808080"
+              }}
+              variant="outlined"
+            >
+              <GoogleIcon  sx={{color:"blue" }}/>
+              Sign in with Google
+            </Button>
 
-          <Button
-            sx={{
-              height: "3rem",
-              width: "15rem",
-              marginTop: ".5rem",
-              padding: "0.5rem",
-              borderRadius: "20px",
-              textTransform: "none"
-            }}
-            variant="outlined"
-          // onClick={handleSubmit}
-          >
-            Forgot password?
-          </Button>
-        </DialogContent>
+            <Button
+              sx={{
+                height: "3rem",
+                width: "20rem",
+                marginTop: "1.5rem",
+                padding: "0.5rem",
+                borderRadius: "20px",
+                textTransform: "none",
+                color:"#000000",
+                textAlign:"center"
+              }}
+              variant="outlined"
+            >
+              <AppleIcon />
+              Sign in with Apple
+            </Button>
+            <div className={style.divider}>
+            <hr style={{width:"9rem"}} /> or <hr style={{width:"9rem"}}/>
+            </div>
+            <TextField
+              sx={{
+                 padding: "0.5rem", height: "1.5rem",
+                width: "20rem", borderRadius: "20px"
+              }}
+              id="outlined-basic"
+              label="Email"
+              variant="outlined"
+              onChange={(e) => setEmail(e.target.value)}
+              value={email}
+            />
+
+            <TextField
+              sx={{
+                marginTop: "3.2rem", padding: "0.5rem", height: "1.5rem",
+                width: "20rem", borderRadius: "20px"
+              }}
+              id="outlined-basic"
+              label="Password"
+              variant="outlined"
+              onChange={(e) => setPassword(e.target.value)}
+              value={password}
+            />
+
+
+            {error ? <small style={{ color: "red" }}>{errortxt}</small> : null}
+            <Button
+              sx={{
+                height: "3rem",
+                width: "20rem",
+                marginTop: "3.5rem",
+                padding: "0.5rem",
+                borderRadius: "20px",
+                backgroundColor: "black",
+                textTransform: "none"
+              }}
+              variant="outlined"
+              onClick={handleSubmit}
+            >
+              Login
+            </Button>
+
+            <Button
+              sx={{
+                height: "3rem",
+                width: "20rem",
+                marginTop: "1.5rem",
+                marginBottom:"1rem",
+                padding: "0.5rem",
+                borderRadius: "20px",
+                textTransform: "none"
+              }}
+              variant="outlined"
+            // onClick={handleSubmit}
+            >
+              Forgot password?
+            </Button>
+            <div>
+            <p>Don't have an account? <span className={style.link}>Sign up</span></p>
+            </div>
+          </DialogContent>
+        </div>
       </Dialog>
 
-      <Button variant="contained" sx={{ textTransform: "none" }} onClick={handleClickOpen}>
+      <Button variant="outlined" onClick={handleClickOpen}
+      sx={{width:"6rem", padding: "0.5rem",border:"0.5px solid white",borderRadius: "20px",textTransform:"none",color:"white" }}>
         LogIn
       </Button>
     </div>
