@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from 'react-router-dom';
 import TextField from "@mui/material/TextField";
 // import { TimePickerToolbar } from '@mui/x-date-pickers-pro';
 import ClearIcon from "@mui/icons-material/Clear";
@@ -13,6 +14,7 @@ import DialogContent from "@mui/material/DialogContent";
 // import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from "@mui/material/DialogTitle";
 
+
 const Login = () => {
   const [open, setOpen] = React.useState(false);
   const [email, setEmail] = useState("");
@@ -20,6 +22,8 @@ const Login = () => {
   const [userList, setUserList] = useState([])
   const [error, setError] = useState(false)
   const [errortxt, setErrorTxt] = useState("")
+  
+  const navigiate=useNavigate()
 
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem("userData"))
@@ -54,6 +58,7 @@ const Login = () => {
     setOpen(false);
   };
 
+
   return (
     <div>
       <Dialog
@@ -76,9 +81,9 @@ const Login = () => {
         </DialogActions>
         <div className={style.formContaine}>
           <div className={style.icon}>
-            <TwitterIcon sx={{ color: "blue",position: "absolute", left: "auto",right:"auto", top: 0 }} />
+            <TwitterIcon sx={{ color: "blue", position: "absolute", left: "auto", right: "auto", top: 0 }} />
           </div>
-          <DialogTitle sx={{ textAlign: "center",fontSize:'1rem' }}>
+          <DialogTitle sx={{ textAlign: "center", fontSize: '1rem' }}>
             <h1>Sign in to Twitter</h1>
           </DialogTitle>
           <DialogContent
@@ -93,30 +98,30 @@ const Login = () => {
             <Button
               sx={{
                 height: "3rem",
-                width: "20rem",
+                width: "60%",
                 marginTop: "1rem",
                 padding: "0.5rem",
                 borderRadius: "20px",
                 textTransform: "none",
-                textAlign:"center",
-                color:"#808080"
+                textAlign: "center",
+                color: "#808080"
               }}
               variant="outlined"
             >
-              <GoogleIcon  sx={{color:"blue" }}/>
+              <GoogleIcon sx={{ color: "blue" }} />
               Sign in with Google
             </Button>
 
             <Button
               sx={{
                 height: "3rem",
-                width: "20rem",
+                width: "60%",
                 marginTop: "1.5rem",
                 padding: "0.5rem",
                 borderRadius: "20px",
                 textTransform: "none",
-                color:"#000000",
-                textAlign:"center"
+                color: "#000000",
+                textAlign: "center"
               }}
               variant="outlined"
             >
@@ -124,13 +129,14 @@ const Login = () => {
               Sign in with Apple
             </Button>
             <div className={style.divider}>
-            <hr style={{width:"9rem"}} /> or <hr style={{width:"9rem"}}/>
+              <hr style={{ width: "9rem" }} /> or <hr style={{ width: "9rem" }} />
             </div>
             <TextField
               sx={{
-                 padding: "0.5rem", height: "1.5rem",
-                width: "20rem", borderRadius: "20px"
+                padding: "0.5rem", height: "1.5rem",
+                width: "60%", borderRadius: "20px"
               }}
+              autoComplete="off"
               id="outlined-basic"
               label="Email"
               variant="outlined"
@@ -141,8 +147,9 @@ const Login = () => {
             <TextField
               sx={{
                 marginTop: "3.2rem", padding: "0.5rem", height: "1.5rem",
-                width: "20rem", borderRadius: "20px"
+                width: "60%", borderRadius: "20px"
               }}
+              autoComplete="off"
               id="outlined-basic"
               label="Password"
               variant="outlined"
@@ -150,17 +157,24 @@ const Login = () => {
               value={password}
             />
 
+            <div className={style.error}>
+              {error ? <small style={{ color: "red" }}>{errortxt}</small> : null}
 
-            {error ? <small style={{ color: "red" }}>{errortxt}</small> : null}
+            </div>
             <Button
               sx={{
                 height: "3rem",
-                width: "20rem",
-                marginTop: "3.5rem",
+                width: "60%",
+                marginTop: "2rem",
                 padding: "0.5rem",
                 borderRadius: "20px",
-                backgroundColor: "black",
-                textTransform: "none"
+                backgroundColor: "#000000",
+                textTransform: "none",
+                color: "#ffffff",
+                "&:hover": {
+                  backgroundColor: "#808080"
+                }
+
               }}
               variant="outlined"
               onClick={handleSubmit}
@@ -171,27 +185,30 @@ const Login = () => {
             <Button
               sx={{
                 height: "3rem",
-                width: "20rem",
+                width: "60%",
                 marginTop: "1.5rem",
-                marginBottom:"1rem",
+                marginBottom: "1rem",
                 padding: "0.5rem",
                 borderRadius: "20px",
                 textTransform: "none"
+
               }}
               variant="outlined"
             // onClick={handleSubmit}
             >
               Forgot password?
             </Button>
+
             <div>
-            <p>Don't have an account? <span className={style.link}>Sign up</span></p>
+              <p>Don't have an account?<span className={style.link}>Sign up</span></p>
             </div>
+
           </DialogContent>
         </div>
       </Dialog>
 
       <Button variant="outlined" onClick={handleClickOpen}
-      sx={{width:"6rem", padding: "0.5rem",border:"0.5px solid white",borderRadius: "20px",textTransform:"none",color:"white" }}>
+        sx={{ width: "6rem", padding: "0.5rem", border: "0.5px solid white", borderRadius: "20px", textTransform: "none", color: "white" }}>
         LogIn
       </Button>
     </div>
