@@ -117,7 +117,7 @@ const Registration = () => {
         </DialogActions>
         <div className={style.formContainer}>
 
-          <DialogTitle sx={{ position: "absolute", left: 0, top: 0, marginLeft: "1.8em",marginTop: "1.5em" }} >
+          <DialogTitle sx={{ position: "absolute", left: 0, top: 0, marginLeft: "1.8em", marginTop: "1.5em" }} >
             <h1>Create your account</h1>
           </DialogTitle>
           <DialogContent
@@ -163,16 +163,16 @@ const Registration = () => {
               value={password}
 
             />
-             <div className={style.dobInfo}>
-             <span>Date of birth</span>
-                <p>
-                  This will not be shown publicly. Confirm your own age, even if this account is for a business, a pet, or something else.
-                </p>
-              </div>
+            <div className={style.dobInfo}>
+              <span>Date of birth</span>
+              <p>
+                This will not be shown publicly. Confirm your own age, even if this account is for a business, a pet, or something else.
+              </p>
+            </div>
 
             <div className={style.dobContainer}>
               <div >
-                <Box sx={{ minWidth: "10rem"}}>
+                <Box sx={{ minWidth: "10rem" }}>
                   <FormControl fullWidth>
                     <InputLabel id="demo-simple-select-label">Month</InputLabel>
                     <Select
@@ -211,7 +211,7 @@ const Registration = () => {
                 </Box>
               </div>
 
-             
+
 
               <div >
                 <Box sx={{ minWidth: "6rem" }}>
@@ -295,7 +295,7 @@ const Registration = () => {
             {error ? <small style={{ color: "red" }}>{errortxt}</small> : null}
             {/* {error && <p>{error}</p>} */}
             <Button
-              sx={{ marginTop: "2.5rem", padding: "0.5rem", width:"88%",borderRadius:"20px" }}
+              sx={{ marginTop: "2.5rem", padding: "0.5rem", width: "88%", borderRadius: "20px" }}
               variant="contained"
               onClick={handleSubmit}
             >
@@ -305,11 +305,12 @@ const Registration = () => {
 
         </div>
       </Dialog>
-      <Button variant="contained" onClick={handleClickOpen} >
+      <Button variant="contained" onClick={handleClickOpen}
+       sx={{width:"6rem", padding: "0.5rem",borderRadius: "20px",textTransform:"none",backgroundColor:"white",color:"#000000" }}>
         SignUp
       </Button>
-      
-      
+
+
     </div>
   );
 };

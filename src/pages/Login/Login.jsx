@@ -172,7 +172,8 @@ const Login = () => {
               sx={{
                 height: "3rem",
                 width: "20rem",
-                marginTop: "3rem",
+                marginTop: "1.5rem",
+                marginBottom:"1rem",
                 padding: "0.5rem",
                 borderRadius: "20px",
                 textTransform: "none"
@@ -182,11 +183,15 @@ const Login = () => {
             >
               Forgot password?
             </Button>
+            <div>
+            <p>Don't have an account? <span className={style.link}>Sign up</span></p>
+            </div>
           </DialogContent>
         </div>
       </Dialog>
 
-      <Button variant="contained" sx={{ textTransform: "none" }} onClick={handleClickOpen}>
+      <Button variant="outlined" onClick={handleClickOpen}
+      sx={{width:"6rem", padding: "0.5rem",border:"0.5px solid white",borderRadius: "20px",textTransform:"none",color:"white" }}>
         LogIn
       </Button>
     </div>
