@@ -1,3 +1,32 @@
 .sidebar2{
-    flex: 0.35;
+    flex: 0.3;
+    padding-right: 4rem;
+    padding-left: 1.7rem;
+}
+.side2_input{
+    display: flex;
+    align-items: center;
+    background-color:  rgb(240, 240, 240);
+    padding: 0.5rem;
+    margin-top: 1rem;
+    margin-left: 1rem;
+    border-radius: 1rem;
+}
+
+.side2_input > input{
+    border: none;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+.side2_searchicon{
+    color: grey;
+}
+
+.side2_container{
+    background-color: white;
+}
+
+.side2_container >h2{
+    padding: 1rem;
 }
