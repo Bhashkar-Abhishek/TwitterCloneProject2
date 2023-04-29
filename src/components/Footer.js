@@ -14,7 +14,7 @@ export default function BoxSx() {
                 flexDirection: "row",
                 justifyContent: "space-around",
                 alignItems: "center",
-                backgroundColor: 'primary.dark',
+                backgroundColor: 'rgb(29, 155, 240)',
                 position: "fixed",
                 bottom: 0,
                 '&:hover': {
