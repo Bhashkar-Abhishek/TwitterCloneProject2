@@ -116,7 +116,8 @@ const Registration = () => {
           />
         </DialogActions>
         <div className={style.formContainer}>
-          <DialogTitle sx={{ position: "absolute", left: 0, top: 0, marginLeft: "1.5em" }}>
+
+          <DialogTitle sx={{ position: "absolute", left: 0, top: 0, marginLeft: "1.8em",marginTop: "1.5em" }} >
             <h1>Create your account</h1>
           </DialogTitle>
           <DialogContent
@@ -162,10 +163,16 @@ const Registration = () => {
               value={password}
 
             />
+             <div className={style.dobInfo}>
+             <span>Date of birth</span>
+                <p>
+                  This will not be shown publicly. Confirm your own age, even if this account is for a business, a pet, or something else.
+                </p>
+              </div>
 
             <div className={style.dobContainer}>
-            <div >
-                <Box sx={{ minWidth: 200 }}>
+              <div >
+                <Box sx={{ minWidth: "10rem"}}>
                   <FormControl fullWidth>
                     <InputLabel id="demo-simple-select-label">Month</InputLabel>
                     <Select
@@ -196,7 +203,7 @@ const Registration = () => {
                       {months.map((month, index) => {
                         return <MenuItem
                           key={Math.random() * 10000} value={index}>{month}</MenuItem>;
-                          // sx:{{ py: 0, fontSize: '0.9rem' }}
+                        // sx:{{ py: 0, fontSize: '0.9rem' }}
                       })}
 
                     </Select>
@@ -204,8 +211,10 @@ const Registration = () => {
                 </Box>
               </div>
 
+             
+
               <div >
-                <Box sx={{ minWidth: 100 }}>
+                <Box sx={{ minWidth: "6rem" }}>
                   <FormControl fullWidth>
                     <InputLabel id="demo-simple-select-label">Day</InputLabel>
                     <Select
@@ -243,9 +252,9 @@ const Registration = () => {
                 </Box>
               </div>
 
-              
+
               <div >
-                <Box sx={{ minWidth: 120 }}>
+                <Box sx={{ minWidth: "8rem" }}>
                   <FormControl fullWidth>
                     <InputLabel id="demo-simple-select-label">Year</InputLabel>
                     <Select
@@ -286,7 +295,7 @@ const Registration = () => {
             {error ? <small style={{ color: "red" }}>{errortxt}</small> : null}
             {/* {error && <p>{error}</p>} */}
             <Button
-              sx={{ marginTop: "1rem", padding: "0.5rem" }}
+              sx={{ marginTop: "2.5rem", padding: "0.5rem", width:"88%",borderRadius:"20px" }}
               variant="contained"
               onClick={handleSubmit}
             >
@@ -296,10 +305,11 @@ const Registration = () => {
 
         </div>
       </Dialog>
-
-      <Button variant="contained" onClick={handleClickOpen}>
+      <Button variant="contained" onClick={handleClickOpen} >
         SignUp
       </Button>
+      
+      
     </div>
   );
 };
