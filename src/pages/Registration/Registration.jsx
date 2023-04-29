@@ -102,7 +102,7 @@ const Registration = () => {
         onClose={handleClose}
         PaperProps={{
           sx: {
-            height: "65vh",
+            height: "70vh",
             width: "60vw",
             borderRadius: "16px"
           }
