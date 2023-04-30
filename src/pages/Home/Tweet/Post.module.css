@@ -33,6 +33,9 @@
   justify-content: space-between;
   margin-top: 0.5em;
 }
+.bottom strong {
+margin-top: 1.2rem !important;
+}
 
 .header_text {
   display: flex;
