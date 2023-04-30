@@ -21,10 +21,10 @@
 }
 
 .body > img {
+  margin-top: 0.5rem;
   border-radius: 1rem;
-  padding-left: 1rem;
-  width: 600px;
-  height: 500px;
+  width: 90%;
+  height: 50vh;
 }
 
 .bottom {
@@ -34,17 +34,20 @@
 }
 
 .header_text {
+  display: flex;
   font-size: 1rem;
-  margin-bottom: 0.5rem;
+  padding-top: 1rem;  
 }
 
 .post_verified {
   font-size: 20px !important;
   color: var(--twitter-color);
+  margin-top: 0;
 }
 
 .header_spec {
   font-weight: 600;
   font-size: 15px;
   color: gray;
+  display: flex;
 }
