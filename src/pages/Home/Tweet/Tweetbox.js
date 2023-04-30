@@ -14,15 +14,15 @@ const Tweetbox = () => {
           <Avatar src={Images} />
           <input placeholder="what's happening ?" type="text" />
         </div>
-        <Button className={styles.tweet_button}>Tweet</Button>
       </form>
-      <div>
+      <div className={styles.tweet_icons}>
         <BsCardImage />
         <RiFileGifLine />
         <RiBarChartGroupedFill />
         <BsEmojiSmile />
         <IoMdCalendar />
         <MdOutlineLocationOn />
+      <Button className={styles.tweet_button}>Tweet</Button>
       </div>
     </div>
   );
