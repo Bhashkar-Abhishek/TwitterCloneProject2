@@ -18,12 +18,12 @@ const Post = () => {
         <div className={styles.header}>
           <div className={styles.header_text}>
             <h3>
-              verified
+              Scarlet Johnson
+            </h3>
               <span className={styles.header_spec}>
                 <VerifiedIcon className={styles.post_verified} />
                 scarlet@gmail.com
               </span>
-            </h3>
           </div>
           <div className={styles.header_description}>
             <p>
