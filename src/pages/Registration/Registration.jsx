@@ -112,7 +112,7 @@ const Registration = () => {
         <DialogActions>
           <ClearIcon
             onClick={handleClose}
-            sx={{ position: "absolute", left: 0, top: 0, margin: "16px", cursor: "pointer" }}
+            sx={{ position: "absolute", left: 0, top: 0, margin: "0.5rem", cursor: "pointer" }}
           />
         </DialogActions>
         <div className={style.formContainer}>
@@ -122,6 +122,7 @@ const Registration = () => {
           </DialogTitle>
           <DialogContent
             sx={{
+              height:"auto",
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
@@ -130,6 +131,7 @@ const Registration = () => {
           >
             <TextField
               sx={{ marginTop: "6rem", padding: "0.5rem", width: "88%" }}
+              autoComplete="off"
               id="outlined-basic"
               label="Name"
               variant="outlined"
@@ -139,6 +141,7 @@ const Registration = () => {
 
             <TextField
               sx={{ marginTop: "1rem", padding: "0.5rem", width: "88%" }}
+              autoComplete="off"
               id="outlined-basic"
               label="Email"
               variant="outlined"
@@ -155,6 +158,7 @@ const Registration = () => {
 
             <TextField
               sx={{ marginTop: "1rem", padding: "0.5rem", width: "88%" }}
+              autoComplete="off"
               id="outlined-basic"
               label="Password"
               type="password"
@@ -292,7 +296,9 @@ const Registration = () => {
               </div>
             </div>
 
-            {error ? <small style={{ color: "red" }}>{errortxt}</small> : null}
+            <div className={style.error}>
+              {error ? <small style={{ color: "red" }}>{errortxt}</small> : null}
+            </div>
             {/* {error && <p>{error}</p>} */}
             <Button
               sx={{ marginTop: "2.5rem", padding: "0.5rem", width: "88%", borderRadius: "20px" }}
@@ -306,7 +312,7 @@ const Registration = () => {
         </div>
       </Dialog>
       <Button variant="contained" onClick={handleClickOpen}
-       sx={{width:"6rem", padding: "0.5rem",borderRadius: "20px",textTransform:"none",backgroundColor:"white",color:"#000000" }}>
+        sx={{ width: "6rem", padding: "0.5rem", borderRadius: "20px", textTransform: "none", backgroundColor: "white", color: "#000000" }}>
         SignUp
       </Button>
 

@@ -17,10 +17,7 @@ export default function BoxSx() {
                 backgroundColor: "rgb(29, 155, 240)",
                 position: "fixed",
                 bottom: 0,
-                '&:hover': {
-                    backgroundColor: 'primary.main',
-                    opacity: [0.9, 0.8, 0.7],
-                },
+                
             }}
         >
             <div className={style.info}>
