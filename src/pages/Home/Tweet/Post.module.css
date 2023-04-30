@@ -23,11 +23,12 @@
 .body > img {
   margin-top: 0.5rem;
   border-radius: 1rem;
-  width: 90%;
+  width: 50%;
   height: 50vh;
 }
 
 .bottom {
+  width: fit-content;
   display: flex;
   justify-content: space-between;
   margin-top: 0.5em;
@@ -51,3 +52,6 @@
   color: gray;
   display: flex;
 }
+/* .img{
+  width: 50vw;
+} */
