@@ -1,13 +1,19 @@
-import React from "react";
-import Sidebar from "./sidebar/Sidebar";
-import Sidebar2 from "./RightSide/Sidebar2";
-import Tweet from "./Tweet/Tweet";
+import React, { useState } from "react";
+import MainPage from "../MainPage/MainPage";
+import Footer  from '../../components/Footer'
+
+
+
 const Home = () => {
+  
+const [isLoggedIn,setIsLoggedIn]= useState(true)
   return (
     <div className="home_design">
-      <Sidebar />
-      <Tweet />
-      <Sidebar2 />
+      <MainPage/>
+      {
+        isLoggedIn ?   <Footer /> : null
+      }
+    
     </div>
   );
 };

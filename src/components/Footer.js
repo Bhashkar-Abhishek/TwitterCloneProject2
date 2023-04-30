@@ -1,10 +1,11 @@
-import * as React from 'react';
+import  React ,{useState} from 'react';
 import Box from '@mui/material/Box';
+
 import Registration from "../pages/Registration/Registration"
 import Login from "../pages/Login/Login"
 import style from "./Footer.module.css"
-
 export default function BoxSx() {
+    
     return (
         <Box
             sx={{
@@ -33,6 +34,7 @@ export default function BoxSx() {
                 <div>
                 <Registration />
                 </div>
+              
             </div>
         </Box>
     );

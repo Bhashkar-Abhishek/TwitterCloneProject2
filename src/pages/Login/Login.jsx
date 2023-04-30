@@ -15,6 +15,7 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
 
 
+
 const Login = () => {
   const [open, setOpen] = React.useState(false);
   const [email, setEmail] = useState("");
@@ -22,6 +23,9 @@ const Login = () => {
   const [userList, setUserList] = useState([])
   const [error, setError] = useState(false)
   const [errortxt, setErrorTxt] = useState("")
+
+
+  
   
   const navigiate=useNavigate()
 
@@ -47,6 +51,8 @@ const Login = () => {
       setError(false)
       setErrorTxt("")
       alert(`Hello ${userList.name} Login successful `)
+      navigiate('/mainPage')
+  
     }
   }
 
@@ -57,7 +63,10 @@ const Login = () => {
   const handleClose = () => {
     setOpen(false);
   };
+  
+  const handleSignUp=()=>{
 
+  }
 
   return (
     <div>
@@ -200,17 +209,20 @@ const Login = () => {
             </Button>
 
             <div>
-              <p>Don't have an account?<span className={style.link}>Sign up</span></p>
+              <p>Don't have an account?<span className={style.link} onClick={handleSignUp} >Sign up</span></p>
             </div>
 
           </DialogContent>
         </div>
       </Dialog>
-
+ 
+  
       <Button variant="outlined" onClick={handleClickOpen}
         sx={{ width: "6rem", padding: "0.5rem", border: "0.5px solid white", borderRadius: "20px", textTransform: "none", color: "white" }}>
         LogIn
       </Button>
+
+   
     </div>
   );
 };
