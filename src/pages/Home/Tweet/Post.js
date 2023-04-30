@@ -18,7 +18,7 @@ const Post = () => {
         <div className={styles.header}>
           <div className={styles.header_text}>
             <h3>
-              verified
+              Scarlet Johnson
               <span className={styles.header_spec}>
                 <VerifiedIcon className={styles.post_verified} />
                 scarlet@gmail.com
