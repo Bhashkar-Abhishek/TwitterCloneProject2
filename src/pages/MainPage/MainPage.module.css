@@ -11,9 +11,6 @@
 .tweet{
     width: 40vw;
 }
-.home_design::-webkit-scrollbar {
-  display: none;
-}
 
 @media only screen and (max-width: 768px) {
     .sidebar {   
@@ -27,5 +24,7 @@
     .home_design{
         margin: 0;
     }
-   
+    .home_design::-webkit-scrollbar {
+      display: none;
+    }
   }
