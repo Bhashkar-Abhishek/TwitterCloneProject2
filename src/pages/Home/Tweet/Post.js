@@ -11,7 +11,8 @@ import { useRecoilState } from "recoil";
 import { tweetData } from "../../../Data/Atom";
 const Post = () => {
   const [myTweet, setMyTweets] = useRecoilState(tweetData)
-   
+
+
   function handleLike(tweetId) {
     setMyTweets((prevTweets) =>
       prevTweets.map((tweet) =>
@@ -70,20 +71,20 @@ const Post = () => {
                 <div className={styles.bottom}>
 
                   <span onClick={() => handleComment(tweet.id)} >
-                    <FaRegCommentDots style={{ color: tweet.isCommented ? "red" : "inherit",cursor:"pointer" }} />
+                    <FaRegCommentDots style={{ color: tweet.isCommented ? "red" : "inherit", cursor: "pointer" }} />
                   </span>
                   <strong style={{ color: tweet.isCommented ? "red" : "inherit" }}>
-                      {tweet.commentCount}
-                    </strong>
+                    {tweet.commentCount}
+                  </strong>
 
                   <RepeatIcon fontSize="small" />
 
                   <span onClick={() => handleLike(tweet.id)} >
-                    <FavoriteBorderIcon fontSize="small" style={{ color: tweet.isLiked ? "red" : "inherit",cursor:"pointer" }} />
-                   </span>
-                   <strong style={{ color: tweet.isLiked ? "red" : "inherit" }}>
-                      {tweet.likeCount}
-                    </strong>
+                    <FavoriteBorderIcon fontSize="small" style={{ color: tweet.isLiked ? "red" : "inherit", cursor: "pointer" }} />
+                  </span>
+                  <strong style={{ color: tweet.isLiked ? "red" : "inherit" }}>
+                    {tweet.likeCount}
+                  </strong>
 
                   <PollIcon fontSize="small" />
                   <IosShareIcon fontSize="small" />
