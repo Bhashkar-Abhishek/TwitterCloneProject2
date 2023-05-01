@@ -17,13 +17,14 @@ import Select from "@mui/material/Select";
 import { months } from "./Data";
 import style from "./Registration.module.css"
 const Registration = () => {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(true);
+
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const [error, setError] = useState(false)
+  const [error, setError] = useState(true)
   const [errortxt, setErrorTxt] = useState("")
 
   // const[users,setUsers]=useState([])
@@ -92,6 +93,7 @@ const Registration = () => {
 
   const handleClose = () => {
     setOpen(false);
+    navigate('/')
   };
 
 
@@ -99,7 +101,7 @@ const Registration = () => {
     <div>
       <Dialog
         open={open}
-        onClose={handleClose}
+        // onClose={handleClose}
         PaperProps={{
           sx: {
             height: "70%",
@@ -311,10 +313,10 @@ const Registration = () => {
 
         </div>
       </Dialog>
-      <Button variant="contained" onClick={handleClickOpen}
+      {/* <Button variant="contained" onClick={handleClickOpen}
         sx={{ width: "6rem", padding: "0.5rem", borderRadius: "20px", textTransform: "none", backgroundColor: "white", color: "#000000" }}>
         SignUp
-      </Button>
+      </Button> */}
 
 
     </div>

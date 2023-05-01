@@ -4,8 +4,17 @@ import Box from '@mui/material/Box';
 import Registration from "../pages/Registration/Registration"
 import Login from "../pages/Login/Login"
 import style from "./Footer.module.css"
+import {useNavigate } from 'react-router-dom';
+import Button from "@mui/material/Button";
+
 export default function BoxSx() {
-    
+    const navigate=useNavigate()
+    function  handleLogin(){
+        navigate("/login")
+    }
+    function  handleSignUp(){
+        navigate("/signup")
+    }
     return (
         <Box
             sx={{
@@ -35,10 +44,20 @@ export default function BoxSx() {
 
             <div className={style.button}>
                 <div>
-                <Login />
+                {/* <Login /> */}
+                <Button variant="outlined" onClick={handleLogin}
+        sx={{ width: "6rem", padding: "0.5rem", border: "0.5px solid white", borderRadius: "20px", textTransform: "none", color: "white" }}>
+        LogIn
+      </Button>
+
                 </div>
                 <div>
-                <Registration />
+                {/* <Registration /> */}
+      <Button variant="contained" onClick={handleSignUp}
+        sx={{ width: "6rem", padding: "0.5rem", borderRadius: "20px", textTransform: "none", backgroundColor: "white", color: "#000000" }}>
+        SignUp
+      </Button>
+
                 </div>
               
             </div>

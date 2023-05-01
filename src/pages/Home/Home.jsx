@@ -6,13 +6,13 @@ import Footer  from '../../components/Footer'
 
 const Home = () => {
   
-const [isLoggedIn,setIsLoggedIn]= useState(true)
+// const [isLoggedIn,setIsLoggedIn]= useState(true)
   return (
     <div className="home_design">
-      <MainPage/>
+      {/* <MainPage/>
       {
         isLoggedIn ?   <Footer /> : null
-      }
+      } */}
     
     </div>
   );

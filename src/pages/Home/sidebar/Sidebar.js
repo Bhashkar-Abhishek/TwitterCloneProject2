@@ -12,8 +12,13 @@ import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import { Button } from '@mui/material';
 import { GiFeather } from 'react-icons/gi';
+import {  useNavigate } from 'react-router-dom';
 
 const Sidebar = () => {
+  const navigate=useNavigate()
+  function handleLogOut(){
+    navigate("/login")
+  }
   return (
     <div className={styles.sidebar}>
       <TwitterIcon className={styles.twitterIcon}/>
@@ -27,6 +32,9 @@ const Sidebar = () => {
       <SidebarOption Icon={MoreHorizIcon} text={<span className={styles.text}>More</span>}/>
       {/* <SidebarOption active Icon={GiFeather} text={<span className={styles.text}>Tweet</span>} /> */}
       <Button variant="outlined" className={styles.sidebar_Tweet}>Tweet</Button>
+      <div>
+        <Button variant="outlined" className={styles.sidebar_Tweet} onClick={handleLogOut}> LogOut</Button>
+      </div>
     </div>
   )
 }

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import TextField from "@mui/material/TextField";
 // import { TimePickerToolbar } from '@mui/x-date-pickers-pro';
-import ClearIcon from "@mui/icons-material/Clear";
+import CloseIcon from "@mui/icons-material/Clear";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import GoogleIcon from "@mui/icons-material/Google";
 import AppleIcon from "@mui/icons-material/Apple";
@@ -17,7 +17,7 @@ import DialogTitle from "@mui/material/DialogTitle";
 
 
 const Login = () => {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(true);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [userList, setUserList] = useState([])
@@ -27,7 +27,7 @@ const Login = () => {
 
   
   
-  const navigiate=useNavigate()
+  const navigate=useNavigate()
 
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem("userData"))
@@ -51,7 +51,7 @@ const Login = () => {
       setError(false)
       setErrorTxt("")
       alert(`Hello ${userList.name} Login successful `)
-      navigiate('/mainPage')
+      navigate('/mainPage')
   
     }
   }
@@ -62,17 +62,17 @@ const Login = () => {
 
   const handleClose = () => {
     setOpen(false);
+    navigate("/signup")
   };
-  
-  const handleSignUp=()=>{
 
-  }
+ 
 
   return (
     <div>
       <Dialog
         open={open}
-        onClose={handleClose}
+        // onClose={handleClose}
+
         PaperProps={{
           sx: {
             height: "70%",
@@ -83,8 +83,8 @@ const Login = () => {
         className={style.loginDialog}
       >
         <DialogActions>
-          <ClearIcon
-            onClick={handleClose}
+          <CloseIcon
+           onClick={handleClose}
             sx={{ position: "absolute", left: 0, top: 0, margin: "0.5em", cursor: "pointer" }}
           />
         </DialogActions>
@@ -209,7 +209,7 @@ const Login = () => {
             </Button>
 
             <div>
-              <p>Don't have an account?<span className={style.link} onClick={handleSignUp} >Sign up</span></p>
+              <p>Don't have an account? <Link to="/signup"> <span >Sign up</span></Link></p>
             </div>
 
           </DialogContent>
@@ -217,10 +217,10 @@ const Login = () => {
       </Dialog>
  
   
-      <Button variant="outlined" onClick={handleClickOpen}
+      {/* <Button variant="outlined" onClick={handleClickOpen}
         sx={{ width: "6rem", padding: "0.5rem", border: "0.5px solid white", borderRadius: "20px", textTransform: "none", color: "white" }}>
         LogIn
-      </Button>
+      </Button> */}
 
    
     </div>
