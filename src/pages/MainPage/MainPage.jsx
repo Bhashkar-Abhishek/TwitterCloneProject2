@@ -20,6 +20,8 @@ const MainPage = () => {
       <div className={style.sidebar2}>
       <Sidebar2 />
       </div>
+
+      
     </div>
   );
 };
