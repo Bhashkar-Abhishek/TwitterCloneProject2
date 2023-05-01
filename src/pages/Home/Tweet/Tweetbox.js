@@ -8,6 +8,8 @@ import { MdOutlineLocationOn } from "react-icons/md";
 import { useRecoilState  } from "recoil";
 import { tweetData } from "../../../Data/Atom";
 import { todoItem } from "../../../Data/Atom";
+import VerifiedIcon from "@mui/icons-material/Verified";
+
 
 const Tweetbox = () => {
   const [myTweet, setMyTweets] = useRecoilState(tweetData)
@@ -37,8 +39,12 @@ const Tweetbox = () => {
       </div>
 
       <div>
-        { myPosts.map((post) => {
+        { myPosts.map((post,index) => {
           return ( <div>
+          <Avatar src={myTweet[0].image} />
+          <h3>{myTweet[0].userName}</h3>
+          <VerifiedIcon className={styles.post_verified} />
+          <p>{myTweet[0].email}</p>
             <h3>{post}</h3>
           </div>)
         })}
