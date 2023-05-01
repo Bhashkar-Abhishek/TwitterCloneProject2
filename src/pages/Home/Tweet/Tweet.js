@@ -16,8 +16,14 @@ const Tweet = () => {
           </div>
         </div>
       </div>
+
+      <div className={styles.Tweetbox}>
       <Tweetbox />
+      </div>
+
+      <div className={styles.Post}>
       <Post />
+      </div>
     </div>
   );
 };

@@ -5,6 +5,7 @@
   border-right: 1px solid var(--twitter-background);
   min-width: fit-content;
   overflow-y: scroll;
+  border: none;
 }
 
 .tweet_navabar_container{
@@ -61,14 +62,19 @@
   background-color: white;
   z-index: 100;
   border: 0.1px solid rgb(236, 223, 223);
-  padding: 30px 10px;
   font-size: 1rem;
   padding-top: 10px;
   padding-left: 10px;
-  padding-bottom: 0px;
 }
 
 .tweet_header > h2 {
   font-size: 1.5rem;
   font-weight: 600;
+}
+
+
+@media only screen and (max-width: 768px) {
+  .tweet_header{
+    width: 77%;
+  }
 }

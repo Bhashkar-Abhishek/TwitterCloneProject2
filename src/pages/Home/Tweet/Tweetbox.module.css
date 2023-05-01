@@ -2,6 +2,7 @@
   padding-bottom: 0.7rem;
   border-bottom: 0.1px solid rgb(236, 223, 223);
   padding-right: 0.5rem;
+
 }
 
 .tweetbox > form {
@@ -12,6 +13,8 @@
 .tweetbox_input {
   display: flex;
   padding: 0.5rem;
+  width: 74%;
+
 }
 
 .tweetbox_input > input {
@@ -39,9 +42,15 @@
   color: var(--twitter-color);
   font-size: 1.2rem;
   cursor: pointer;
-  width: 100%;
   display: flex;
   align-items: center;
   justify-content:center;
+  width: 74%;
   padding-right: 1rem;
+}
+
+@media only screen and (max-width: 768px) {
+.tweetbox{
+  width: 77%;
+}
 }

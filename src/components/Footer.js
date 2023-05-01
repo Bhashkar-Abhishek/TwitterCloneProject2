@@ -18,8 +18,14 @@ export default function BoxSx() {
                 backgroundColor: "rgb(29, 155, 240)",
                 position: "fixed",
                 bottom: 0,
-                
+                marginLeft:0,
+                boxSizing: 'border-box',
+
+                '@media (max-width: 768px)': {
+                    width:"77%",
+                  },
             }}
+            
         >
             <div className={style.info}>
 

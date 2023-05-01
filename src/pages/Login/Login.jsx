@@ -75,8 +75,8 @@ const Login = () => {
         onClose={handleClose}
         PaperProps={{
           sx: {
-            height: "70vh",
-            width: "60vw",
+            height: "70%",
+            width: "100%",
             borderRadius: "16px"
           }
         }}

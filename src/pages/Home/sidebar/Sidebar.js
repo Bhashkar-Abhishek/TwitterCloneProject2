@@ -11,19 +11,21 @@ import LowPriorityIcon from '@mui/icons-material/LowPriority';
 import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import { Button } from '@mui/material';
+import { GiFeather } from 'react-icons/gi';
 
 const Sidebar = () => {
   return (
     <div className={styles.sidebar}>
       <TwitterIcon className={styles.twitterIcon}/>
-      <SidebarOption active Icon={AddHomeIcon} text="Home"/>
-      <SidebarOption Icon={SearchIcon} text="Explore"/>
-      <SidebarOption Icon={NotificationsNoneIcon} text="Notifications"/>
-      <SidebarOption Icon={MailOutlineIcon} text="Messages"/>
-      <SidebarOption Icon={BookmarkBorderIcon} text="Bookmarks"/>
-      <SidebarOption Icon={LowPriorityIcon} text="Twitter Blue"/>
-      <SidebarOption Icon={PermIdentityIcon} text="Profile"/>
-      <SidebarOption Icon={MoreHorizIcon} text="More"/>
+      <SidebarOption active Icon={AddHomeIcon} text={<span className={styles.text}>Home</span>}/>
+      <SidebarOption Icon={SearchIcon} text={<span className={styles.text}>Explore</span>}/>
+      <SidebarOption Icon={NotificationsNoneIcon} text={<span className={styles.text}>Notifications</span>}/>
+      <SidebarOption Icon={MailOutlineIcon} text={<span className={styles.text}>Messages</span>}/>
+      <SidebarOption Icon={BookmarkBorderIcon} text={<span className={styles.text}>Bookmarks</span>}/>
+      <SidebarOption Icon={LowPriorityIcon} text={<span className={styles.text}>Twitter Blue</span>}/>
+      <SidebarOption Icon={PermIdentityIcon} text={<span className={styles.text}>Profile</span>}/>
+      <SidebarOption Icon={MoreHorizIcon} text={<span className={styles.text}>More</span>}/>
+      {/* <SidebarOption active Icon={GiFeather} text={<span className={styles.text}>Tweet</span>} /> */}
       <Button variant="outlined" className={styles.sidebar_Tweet}>Tweet</Button>
     </div>
   )

@@ -1,3 +1,8 @@
+.loginDialog {
+ position: relative;
+ z-index: 1;
+}
+
 .formContainer {
     height: 70vh;
     width: 100%;
@@ -6,13 +11,15 @@
     justify-content: center;
     margin-left: "1.5em";
 }
-.icon{
+
+.icon {
     display: flex;
     justify-content: center;
     margin-bottom: 2rem;
     padding: 0;
 }
-.divider{
+
+.divider {
     height: 2.5rem;
     width: 60%;
     margin: 0.5rem;
@@ -24,11 +31,17 @@
     color: #000000;
     overflow: hidden;
 }
-.link{
+
+.link {
     color: blue;
     cursor: pointer;
 }
-.error{
+
+.error {
     margin-top: 3rem;
     width: 60%;
+}
+
+@media screen and (max-width: 767px) {
+    .loginDialog {}
 }

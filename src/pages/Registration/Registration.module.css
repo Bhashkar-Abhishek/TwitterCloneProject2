@@ -1,3 +1,8 @@
+.signUpDialog {
+    position: relative;
+    z-index: 1;
+   }
+   
 .formContainer {
     height: calc(65vh-1em);
     width: 100%;
@@ -33,4 +38,13 @@
 .error{
     font-size: 1.1rem;
     margin-top: 1rem;
+}
+
+@media (max-width: 768px) {
+    .dobContainer{
+        flex-direction: column;
+    }
+    .formContainer h1{
+        font-size: 2rem;
+    }
 }

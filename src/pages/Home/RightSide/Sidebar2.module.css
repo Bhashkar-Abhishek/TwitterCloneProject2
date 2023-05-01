@@ -2,6 +2,7 @@
     flex: 0.3;
     padding-right: 4rem;
     padding-left: 1.7rem;
+    width: 30vw;
 }
 .side2_input{
     display: flex;
@@ -30,3 +31,35 @@
 .side2_container >h2{
     padding: 1rem;
 }
+
+@media only screen and (max-width: 600px) {
+    .sidebar2 {
+      display: none;
+    }
+
+  }
+  
+  @media only screen and (min-width: 600px) and (max-width: 960px) {
+    .sidebar2 {
+      display:none;
+    }
+
+  }
+  
+  @media only screen and (min-width: 960px) {
+    .sidebar2 {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+    }
+  
+    .side2_input {
+      margin-right: 16px;
+    }
+  
+    .side2_container {
+      flex: 1;
+    }
+  }
+  
