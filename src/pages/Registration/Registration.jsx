@@ -75,7 +75,7 @@ const Registration = () => {
       const updatedUsers = [...oldData, newUser]
       localStorage.setItem("userData", JSON.stringify(updatedUsers))
 
-      navigate("./")
+      navigate("/")
     }
   }
 
