@@ -17,7 +17,7 @@ const Tweetbox = () => {
   const [myPosts,setMyPosts] = useRecoilState(todoItem)
   const[value,setValue]=useState("")
   const [logedInUser, setlogedInUser] = useRecoilState(user)
-  
+
   const handleAddTweet=()=>{
    setMyPosts([...myPosts,value])
    setValue("")
@@ -27,9 +27,9 @@ const Tweetbox = () => {
     <div className={styles.tweetbox}>
       <form>
         <div className={styles.tweetbox_input}>
-        <Avatar sx={{ width: 45, height: 45 }}>
+        <Avatar sx={{ width: 50, height: 50,backgroundColor: "#50b7f5"}}>
                     {logedInUser.name[0]}
-                  </Avatar>
+                   </Avatar>
           <input placeholder="what's happening ?" type="text"  value={value} onChange={(e) => setValue(e.target.value)}/>
         </div>
       </form>
@@ -45,14 +45,27 @@ const Tweetbox = () => {
 
       <div>
         { myPosts.map((post,index) => {
-          return ( <div>
-          <Avatar sx={{ width: 45, height: 45 }}>
+          return ( <div className={styles.postContainer}>
+
+  <div className={styles.postUserDetail }>
+  <div> <Avatar sx={{ width: 50, height: 50,backgroundColor: "#50b7f5"}}>
                     {logedInUser.name[0]}
-                  </Avatar>
-          <h3>{logedInUser.name}</h3>
-          <VerifiedIcon className={styles.post_verified} />
-          <p>{logedInUser.email}</p>
-            <h3>{post}</h3>
+                   </Avatar></div>
+      <div> <p>&nbsp;&nbsp;&nbsp;{logedInUser.name}</p></div>
+
+      <div>  <VerifiedIcon className={styles.post_verified}  sx={{color: "var( --twitter-color)" }}  /></div>
+
+      <div> <p>{logedInUser.email}</p></div>
+
+  </div>
+         
+          
+        
+         <div className={styles.postUserPost} >
+         <p>{post}</p>
+         </div>
+
+            
           </div>)
         })}
       </div>
