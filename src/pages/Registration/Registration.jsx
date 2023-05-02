@@ -93,7 +93,7 @@ const Registration = () => {
 
   const handleClose = () => {
     setOpen(false);
-    navigate('/')
+    navigate('/login')
   };
 
 
