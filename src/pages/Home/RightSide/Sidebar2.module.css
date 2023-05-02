@@ -175,3 +175,19 @@ cursor: pointer;
   background-color: #dfe1e3;
 }
 
+@media only screen and (max-width: 768px) {
+ 
+
+}
+
+@media only screen and (max-width: 1024px) {
+ 
+}
+@media only screen and (max-width: 913px) {
+
+  
+}
+
+@media only screen and (min-width: 1440px) {
+
+}

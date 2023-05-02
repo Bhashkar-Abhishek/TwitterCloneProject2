@@ -38,7 +38,10 @@ const Login = () => {
     setUserList(data)
   }, [])
 
-
+  const pattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+  function isEmail(str) {
+    return str.match(pattern);
+  }
   const handleSubmit = (e) => {
     e.preventDefault()
     const userFind = userList.find((user) => user.email === email && user.password === password)
@@ -51,6 +54,10 @@ const Login = () => {
       setError(true)
       setErrorTxt("Invalid credentials")
       return;
+    }
+    else if(isEmail(email)==null){
+      setError(true)
+      setErrorTxt("Invalid email")
     }
     else if (!userFind) {
       setError(true)
