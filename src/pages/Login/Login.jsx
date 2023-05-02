@@ -13,7 +13,8 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 // import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from "@mui/material/DialogTitle";
-
+import { useRecoilState } from "recoil";
+import { user } from "../../Data/Atom";
 
 
 const Login = () => {
@@ -24,6 +25,7 @@ const Login = () => {
   const [error, setError] = useState(false)
   const [errortxt, setErrorTxt] = useState("")
 
+  const [logedinUser, setlogedinUser] = useRecoilState( user )
 
   
   
@@ -52,6 +54,7 @@ const Login = () => {
       setErrorTxt("")
       alert(`Hello ${userList.name} Login successful `)
       navigate('/mainPage')
+      setlogedinUser({name:userFind.name,email:userFind.email})
   
     }
   }
