@@ -9,12 +9,15 @@ import { useRecoilState  } from "recoil";
 import { tweetData } from "../../../Data/Atom";
 import { todoItem } from "../../../Data/Atom";
 import VerifiedIcon from "@mui/icons-material/Verified";
+import { user } from "../../../Data/Atom";
 
 
 const Tweetbox = () => {
   const [myTweet, setMyTweets] = useRecoilState(tweetData)
   const [myPosts,setMyPosts] = useRecoilState(todoItem)
   const[value,setValue]=useState("")
+  const [logedInUser, setlogedInUser] = useRecoilState(user)
+  
   const handleAddTweet=()=>{
    setMyPosts([...myPosts,value])
    setValue("")
@@ -24,7 +27,9 @@ const Tweetbox = () => {
     <div className={styles.tweetbox}>
       <form>
         <div className={styles.tweetbox_input}>
-          <Avatar src={myTweet[0].image} />
+        <Avatar sx={{ width: 45, height: 45 }}>
+                    {logedInUser.name[0]}
+                  </Avatar>
           <input placeholder="what's happening ?" type="text"  value={value} onChange={(e) => setValue(e.target.value)}/>
         </div>
       </form>
@@ -41,10 +46,12 @@ const Tweetbox = () => {
       <div>
         { myPosts.map((post,index) => {
           return ( <div>
-          <Avatar src={myTweet[0].image} />
-          <h3>{myTweet[0].userName}</h3>
+          <Avatar sx={{ width: 45, height: 45 }}>
+                    {logedInUser.name[0]}
+                  </Avatar>
+          <h3>{logedInUser.name}</h3>
           <VerifiedIcon className={styles.post_verified} />
-          <p>{myTweet[0].email}</p>
+          <p>{logedInUser.email}</p>
             <h3>{post}</h3>
           </div>)
         })}

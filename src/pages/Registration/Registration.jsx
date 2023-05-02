@@ -63,9 +63,9 @@ const Registration = () => {
       setErrorTxt(`${email} already exists`)
      
     }
-    else if(age<10){
+    else if(age<13){
       setError(true)
-      setErrorTxt("User must me older than 10")
+      setErrorTxt("User must me at least 13 years old")
     }
     else {
       setError(false)

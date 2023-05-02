@@ -7,6 +7,8 @@
   justify-content: center;
   width: 40vw;
   border: none;
+  position: relative;
+  top: 0;
 
 }
 .post::-webkit-scrollbar {
@@ -33,7 +35,7 @@
 .body > img {
   margin-top: 0.5rem;
   border-radius: 1rem;
-  width: 80%;
+  width: 87%;
 
 }
 
@@ -69,7 +71,7 @@
 
 @media (max-width: 768px) {
   .post {
-    width: 77%;
+    width: 80%;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -117,4 +119,12 @@
   .body > img {
     width: 80%;
   }
+}
+@media (max-width: 768px) {
+  .post {
+    width: fit-content;
+    align-items: center;
+    justify-content: center;
+    
+  } 
 }
