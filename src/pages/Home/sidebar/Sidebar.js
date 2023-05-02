@@ -49,24 +49,36 @@ const Sidebar = () => {
             <div>
 
               <div  {...bindTrigger(popupState)}>
-                <div >
-                  
-                  <Avatar sx={{ width: 45, height: 45 }}>
+
+                <div className={styles.logoutContainer} >
+
+                  <div className={styles.avatar}>
+                  <Avatar sx={{ width: 50, height: 50,backgroundColor: "#50b7f5"}}>
                     {logedInUser.name[0]}
-                  </Avatar>
+                   </Avatar>
+                  </div>
+
+                    <div className={styles.user}>
+                          
+                          <div>
+                          <span className={styles.name} >{logedInUser.name} </span>
+                          </div>
+                          <div>
+                          <span className={styles.email}>{logedInUser.email}</span>
+                          </div>
+
+                     
+                   </div>
+              
+                  <div className={styles.more}>
+                   
+                   <span> <MoreHorizSharpIcon /></span>
+                  </div>
 
                 </div>
-                <div >
-                  <div>
-                    <span >{logedInUser.name} </span>
-                  </div>
-                  <div>
-                    <span>{logedInUser.email}</span>
-                  </div>
-                </div>
-                <div >
+                {/* <div >
                   <MoreHorizSharpIcon />
-                </div>
+                </div> */}
               </div>
 
               <Popover
