@@ -51,7 +51,7 @@ const Tweetbox = () => {
   <div> <Avatar sx={{ width: 50, height: 50,backgroundColor: "#50b7f5"}}>
                     {logedInUser.name[0]}
                    </Avatar></div>
-      <div> <p>&nbsp;&nbsp;&nbsp;{logedInUser.name}</p></div>
+      <div> <p>&nbsp;&nbsp;&nbsp;&nbsp;{logedInUser.name}</p></div>
 
       <div>  <VerifiedIcon className={styles.post_verified}  sx={{color: "var( --twitter-color)" }}  /></div>
 
