@@ -166,6 +166,7 @@ const Login = () => {
               autoComplete="off"
               id="outlined-basic"
               label="Password"
+              type="Password"
               variant="outlined"
               onChange={(e) => setPassword(e.target.value)}
               value={password}
