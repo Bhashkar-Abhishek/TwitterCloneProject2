@@ -40,12 +40,23 @@ const Tweetbox = () => {
 
       <div>
         { myPosts.map((post,index) => {
-          return ( <div>
-          <Avatar src={myTweet[0].image} />
-          <h3>{myTweet[0].userName}</h3>
-          <VerifiedIcon className={styles.post_verified} />
-          <p>{myTweet[0].email}</p>
-            <h3>{post}</h3>
+          return ( <div className={styles.postContainer}>
+
+  <div className={styles.postUserDetail }>
+  <div><Avatar  src={myTweet[0].image} /></div>
+      <div>  <VerifiedIcon className={styles.post_verified}  sx={{color: "var( --twitter-color)" }}  /></div>
+
+      <div> <p>{myTweet[0].email}</p></div>
+
+  </div>
+         
+          
+        
+         <div className={styles.postUserPost} >
+         <p>{post}</p>
+         </div>
+
+            
           </div>)
         })}
       </div>
