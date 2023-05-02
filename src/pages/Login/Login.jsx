@@ -42,7 +42,12 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
     const userFind = userList.find((user) => user.email === email && user.password === password)
-    if (userList === undefined || userList === null) {
+
+    if(email==="" || password===""){
+      setError(true)
+      setErrorTxt("*InputField can't be blanks")
+    }
+    else if (userList === undefined || userList === null) {
       setError(true)
       setErrorTxt("Invalid credentials")
       return;
@@ -166,6 +171,7 @@ const Login = () => {
               autoComplete="off"
               id="outlined-basic"
               label="Password"
+              type="Password"
               variant="outlined"
               onChange={(e) => setPassword(e.target.value)}
               value={password}

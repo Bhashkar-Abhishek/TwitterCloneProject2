@@ -26,11 +26,18 @@ const Registration = () => {
 
   const [error, setError] = useState(true)
   const [errortxt, setErrorTxt] = useState("")
+  const [day, setDay] = useState("")
+  const [month, setMonth] = useState("")
+  const [year, setYear] = useState("")
+
 
   // const[users,setUsers]=useState([])
   const navigate = useNavigate()
   const oldData = JSON.parse(localStorage.getItem("userData")) || []
-
+  
+  const currentDate = new Date();
+  const dob= new Date(`${year}-${month}-${day}`)
+  const age = currentDate.getFullYear() - dob.getFullYear();
 
   const pattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
   function isEmail(str) {
@@ -38,7 +45,7 @@ const Registration = () => {
   }
   const handleSubmit = (e) => {
     e.preventDefault()
-    if (name === "" || email === "" || password === "") {
+    if (name === "" || email === "" || password === ""|| day===""||month===""||year==="") {
       setError(true)
       setErrorTxt("*Inputfield can't be blank")
     } else if (name.length < 3) {
@@ -54,9 +61,11 @@ const Registration = () => {
     else if (oldData.find((val) => val.email === email)) {
       setError(true)
       setErrorTxt(`${email} already exists`)
-      //   setName("")
-      // setEmail("")
-      // setPassword("")
+     
+    }
+    else if(age<10){
+      setError(true)
+      setErrorTxt("User must me older than 10")
     }
     else {
       setError(false)
@@ -69,13 +78,13 @@ const Registration = () => {
       const newUser = {
         name: name,
         email: email,
-        password: password
+        password: password,
       }
 
       const updatedUsers = [...oldData, newUser]
       localStorage.setItem("userData", JSON.stringify(updatedUsers))
 
-      navigate("./")
+      navigate("/")
     }
   }
 
@@ -186,7 +195,8 @@ const Registration = () => {
                       id="demo-simple-select"
                       // value={Month}
                       label="Month"
-                      // onChange={handleChange}
+                      onChange={(e) => setMonth(e.target.value)}
+
                       MenuProps={{
                         anchorOrigin: {
                           vertical: "top",
@@ -228,7 +238,7 @@ const Registration = () => {
                       id="demo-simple-select"
                       // value={Day}
                       label="Day"
-                      // onChange={handleChange}
+                      onChange={(e) => setDay(e.target.value)}
                       MenuProps={{
                         anchorOrigin: {
                           vertical: "top",
@@ -268,7 +278,7 @@ const Registration = () => {
                       id="demo-simple-select"
                       // value={Year}
                       label="Year"
-                      // onChange={handleChange}
+                      onChange={(e) => setYear(e.target.value)}
                       MenuProps={{
                         anchorOrigin: {
                           vertical: "top",
