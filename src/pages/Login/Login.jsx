@@ -41,8 +41,12 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    if(userList!==null)
-    var userFind = userList.find((user) => user.email === email && user.password === password)
+    const userFind = userList.find((user) => user.email === email && user.password === password)
+
+    if(email==="" || password===""){
+      setError(true)
+      setErrorTxt("*InputField can't be blanks")
+    }
     else if (userList === undefined || userList === null) {
       setError(true)
       setErrorTxt("Invalid credentials")
