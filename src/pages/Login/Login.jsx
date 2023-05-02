@@ -41,8 +41,9 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    const userFind = userList.find((user) => user.email === email && user.password === password)
-    if (userList === undefined || userList === null) {
+    if(userList!==null)
+    var userFind = userList.find((user) => user.email === email && user.password === password)
+    else if (userList === undefined || userList === null) {
       setError(true)
       setErrorTxt("Invalid credentials")
       return;
