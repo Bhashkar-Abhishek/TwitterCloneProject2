@@ -12,7 +12,6 @@ import { tweetData } from "../../../Data/Atom";
 const Post = () => {
   const [myTweet, setMyTweets] = useRecoilState(tweetData)
 
-
   function handleLike(tweetId) {
     setMyTweets((prevTweets) =>
       prevTweets.map((tweet) =>
@@ -76,8 +75,12 @@ const Post = () => {
                   <strong style={{ color: tweet.isCommented ? "red" : "inherit" }}>
                     {tweet.commentCount}
                   </strong>
-
+                  <span>
                   <RepeatIcon fontSize="small" />
+                  </span>
+                  <strong>
+                    {tweet.likeCount}
+                  </strong>
 
                   <span onClick={() => handleLike(tweet.id)} >
                     <FavoriteBorderIcon fontSize="small" style={{ color: tweet.isLiked ? "red" : "inherit", cursor: "pointer" }} />
@@ -85,8 +88,10 @@ const Post = () => {
                   <strong style={{ color: tweet.isLiked ? "red" : "inherit" }}>
                     {tweet.likeCount}
                   </strong>
-
+                  <span>
                   <PollIcon fontSize="small" />
+                  </span>
+                  <strong>{tweet.commentCount}</strong>
                   <IosShareIcon fontSize="small" />
 
                 </div>
