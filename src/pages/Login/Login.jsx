@@ -44,21 +44,24 @@ const Login = () => {
   }
   const handleSubmit = (e) => {
     e.preventDefault()
-    const userFind = userList.find((user) => user.email === email && user.password === password)
+    if(userList!==null &&userList!==undefined){
+    var userFind = userList.find((user) => user.email === email && user.password === password)
+    }
 
-    if(email==="" || password===""){
+    else if(email==="" || password===""){
       setError(true)
       setErrorTxt("*InputField can't be blanks")
-    }
-    else if (userList === undefined || userList === null) {
-      setError(true)
-      setErrorTxt("Invalid credentials")
-      return;
     }
     else if(isEmail(email)==null){
       setError(true)
       setErrorTxt("Invalid email")
     }
+    else if (userList === undefined || userList === null) {
+      setError(true)
+      setErrorTxt("Invalid credentials User not found Register first ")
+      return;
+    }
+  
     else if (!userFind) {
       setError(true)
       setErrorTxt("User not found Register first")
