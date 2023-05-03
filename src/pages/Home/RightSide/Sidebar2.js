@@ -164,9 +164,9 @@ export default function RightSection() {
               );
             })}
           </div>
-          <div className={style.showmore}>
+          {/* <div className={style.showmore}>
             <Link underline="none">show more</Link>
-          </div>
+          </div> */}
         </div>
 
         <div className={style.follow}>
@@ -202,9 +202,9 @@ export default function RightSection() {
               onClick={() => setFollow4(!follow4)}
               follow={follow4 ? "Follow" : "Unfollow"}
             />
-            <div className={style.followMore}>
+            {/* <div className={style.followMore}>
               <Link underline="none">show more</Link>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
