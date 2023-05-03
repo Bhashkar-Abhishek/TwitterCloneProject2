@@ -35,6 +35,7 @@ const Login = () => {
 
   useEffect(() => {
     const data = JSON.parse(localStorage.getItem("userData"))
+    if(data)
     setUserList(data)
   }, [])
 
@@ -44,11 +45,9 @@ const Login = () => {
   }
   const handleSubmit = (e) => {
     e.preventDefault()
-    if(userList!==null &&userList!==undefined){
     var userFind = userList.find((user) => user.email === email && user.password === password)
-    }
 
-    else if(email==="" || password===""){
+     if(email==="" || password===""){
       setError(true)
       setErrorTxt("*InputField can't be blanks")
     }
